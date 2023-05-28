@@ -8,8 +8,12 @@ export default function Index() {
 			<Head>
 				<title>Home Page</title>
 			</Head>
-			<h1>Index Page</h1>
-			<Link href={"./about"}>Go to About Page</Link>
+
+			<h1>Home Page</h1>
+
+			<Link href="./about">
+				<p>Go to About page</p>
+			</Link>
 		</>
 	);
 }

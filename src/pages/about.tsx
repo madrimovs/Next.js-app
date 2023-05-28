@@ -9,7 +9,7 @@ export default function About() {
 				<title>About Page</title>
 			</Head>
 			<h1>About Page</h1>
-			<Link href={"./index"}>Go back Home Page</Link>
+			<Link href="/">Go back Home Page</Link>
 		</>
 	);
 }
