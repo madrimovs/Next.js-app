@@ -1,7 +1,7 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
+// import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -63,9 +63,9 @@ export default function Navbar(props: Props) {
 	const container = window !== undefined ? () => window().document.body : undefined;
 
 	return (
-		<Box sx={{ display: "flex" }}>
-			<CssBaseline />
-			<AppBar component="nav">
+		<Box height={"10vh"} sx={{ display: "flex" }}>
+			{/* <CssBaseline /> */}
+			<AppBar sx={{ backgroundColor: "#141414", height: "10vh" }} component="nav">
 				<Toolbar>
 					<IconButton
 						color="inherit"
