@@ -13,13 +13,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { navItems } from "@/config/constants";
+import Diversity2Icon from "@mui/icons-material/Diversity2";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface Props {
 	window?: () => Window;
 }
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
 
 export default function Navbar(props: Props) {
 	const { window } = props;
@@ -31,15 +33,26 @@ export default function Navbar(props: Props) {
 
 	const drawer = (
 		<Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-			<Typography variant="h6" sx={{ my: 2 }}>
-				SM
-			</Typography>
+			<Box
+				sx={{
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "space-between",
+					paddingX: "20px",
+				}}
+			>
+				<Box sx={{ my: 2, display: "flex", alignItems: "center", gap: "5px" }}>
+					<Diversity2Icon />
+					<Typography variant="h6">SMB</Typography>
+				</Box>
+				<CloseIcon />
+			</Box>
 			<Divider />
 			<List>
 				{navItems.map((item) => (
-					<ListItem key={item} disablePadding>
+					<ListItem key={item.route} disablePadding>
 						<ListItemButton sx={{ textAlign: "center" }}>
-							<ListItemText primary={item} />
+							<ListItemText primary={item.label} />
 						</ListItemButton>
 					</ListItem>
 				))}
@@ -63,17 +76,29 @@ export default function Navbar(props: Props) {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography
-						variant="h6"
-						component="div"
-						sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+					<Box
+						sx={{
+							my: 2,
+							display: { xs: "none", sm: "flex" },
+							alignItems: "center",
+							gap: "5px",
+							flexGrow: 1,
+						}}
 					>
-						MUI
-					</Typography>
+						<Diversity2Icon />
+
+						<Typography
+							variant="h6"
+							component="div"
+							// sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+						>
+							SMB
+						</Typography>
+					</Box>
 					<Box sx={{ display: { xs: "none", sm: "block" } }}>
 						{navItems.map((item) => (
-							<Button key={item} sx={{ color: "#fff" }}>
-								{item}
+							<Button key={item.route} sx={{ color: "#fff" }}>
+								{item.label}
 							</Button>
 						))}
 					</Box>
@@ -86,7 +111,7 @@ export default function Navbar(props: Props) {
 					open={mobileOpen}
 					onClose={handleDrawerToggle}
 					ModalProps={{
-						keepMounted: true, // Better open performance on mobile.
+						keepMounted: true,
 					}}
 					sx={{
 						display: { xs: "block", sm: "none" },

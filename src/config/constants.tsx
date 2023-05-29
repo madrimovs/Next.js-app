@@ -1,4 +1,4 @@
-export const navItem = [
+export const navItems = [
 	{
 		route: "/",
 		label: "Home",
@@ -8,7 +8,7 @@ export const navItem = [
 		label: "Category",
 	},
 	{
-		route: "blogs",
+		route: "/blogs",
 		label: "Blogs",
 	},
 ];
