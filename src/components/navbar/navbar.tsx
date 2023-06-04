@@ -32,7 +32,10 @@ export default function Navbar(props: Props) {
 	};
 
 	const drawer = (
-		<Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+		<Box
+			onClick={handleDrawerToggle}
+			sx={{ textAlign: "center", backgroundColor: "#000", color: "#fff", height: "100%" }}
+		>
 			<Box
 				sx={{
 					display: "flex",

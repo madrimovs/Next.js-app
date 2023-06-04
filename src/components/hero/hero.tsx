@@ -4,7 +4,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Box from "@mui/material/Box";
 import Image from "next/image";
-import { Typography } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
+import { format } from "date-fns";
 
 const Hero = () => {
 	return (
@@ -34,12 +35,24 @@ const Hero = () => {
 								}}
 							>
 								<Box
+									width={"70%"}
+									// display: { xs: "none", sm: "flex" },
+
 									color={"#fff"}
 									position={"relative"}
 									sx={{ top: "50%", transform: "translateY(-50%)", paddingLeft: "50px" }}
 								>
 									<Typography variant="h3">{item.title}</Typography>
 									<Typography variant="h6">{item.exerpt}</Typography>
+									<Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+										<Avatar alt={item.author.name} src={item.author.image} />
+										<Box>
+											<Typography variant="subtitle2">{item.author.name}</Typography>
+											<Typography variant="caption">
+												{format(new Date(), "dd MMM, yyyy")} &#x2022; 10 min read
+											</Typography>
+										</Box>
+									</Box>
 								</Box>
 							</Box>
 						</Box>
