@@ -65,7 +65,7 @@ export default function Navbar(props: Props) {
 	return (
 		<Box height={"10vh"} sx={{ display: "flex" }}>
 			{/* <CssBaseline /> */}
-			<AppBar sx={{ backgroundColor: "#141414", height: "10vh" }} component="nav">
+			<AppBar sx={{ backgroundColor: "#000", height: "10vh" }} component="nav">
 				<Toolbar>
 					<IconButton
 						color="inherit"
