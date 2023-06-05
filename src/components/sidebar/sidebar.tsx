@@ -18,7 +18,7 @@ const Sidebar = () => {
 					>
 						<Typography variant="h5">Category</Typography>
 
-						<Box sx={{ display: "flex", flexDirection: "column" }}>
+						<Box sx={{ display: "flex",  flexDirection: "column" }}>
 							{navItems.map((nav) => (
 								<Fragment key={nav.route}>
 									<Button fullWidth sx={{ justifyContent: "start", height: "50px" }}>
