@@ -16,26 +16,6 @@ const Sidebar = () => {
 						borderRadius={"8px"}
 						boxShadow={"5px 5px 5px 5px solid white"}
 					>
-						<Typography variant="h5">Category</Typography>
-
-						<Box sx={{ display: "flex",  flexDirection: "column" }}>
-							{navItems.map((nav) => (
-								<Fragment key={nav.route}>
-									<Button fullWidth sx={{ justifyContent: "start", height: "50px" }}>
-										{nav.label}
-									</Button>
-									<Divider />
-								</Fragment>
-							))}
-						</Box>
-					</Box>
-					<Box
-						padding={"20px"}
-						border={"2px solid gray"}
-						borderRadius={"8px"}
-						boxShadow={"5px 5px 5px 5px solid white"}
-						marginTop={"20px"}
-					>
 						<Typography variant="h5">Latest blogs</Typography>
 						<Box sx={{ display: "flex", flexDirection: "column" }}>
 							{data.map((item) => (
@@ -65,6 +45,26 @@ const Sidebar = () => {
 									</Box>
 									<Divider sx={{ marginTop: "20px" }} />
 								</Box>
+							))}
+						</Box>
+					</Box>
+					<Box
+						padding={"20px"}
+						border={"2px solid gray"}
+						borderRadius={"8px"}
+						boxShadow={"5px 5px 5px 5px solid white"}
+						marginTop={"20px"}
+					>
+						<Typography variant="h5">Category</Typography>
+
+						<Box sx={{ display: "flex", flexDirection: "column" }}>
+							{navItems.map((nav) => (
+								<Fragment key={nav.route}>
+									<Button fullWidth sx={{ justifyContent: "start", height: "50px" }}>
+										{nav.label}
+									</Button>
+									<Divider />
+								</Fragment>
 							))}
 						</Box>
 					</Box>
