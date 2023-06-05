@@ -6,7 +6,15 @@ export default function Index() {
 	return (
 		<Layout>
 			<Hero />
-			<Box sx={{ display: "flex", gap: 20, padding: "20px" }}>
+			<Box
+				sx={{
+					display: "flex",
+					gap: "20px",
+					padding: "20px",
+					backgroundColor: "#000",
+					color: "#fff",
+				}}
+			>
 				<Sidebar />
 				<Content />
 			</Box>

@@ -1,5 +1,11 @@
+import Box from "@mui/material/Box";
+
 const Content = () => {
-	return <div>Content</div>;
+	return (
+		<Box width={"70%"} height={"200vh"}>
+			Content
+		</Box>
+	);
 };
 
 export default Content;
