@@ -35,15 +35,19 @@ const Hero = () => {
 								}}
 							>
 								<Box
-									width={"70%"}
-									// display: { xs: "none", sm: "flex" },
-
+									width={{ xs: "100%", md: "70%" }}
 									color={"#fff"}
 									position={"relative"}
-									sx={{ top: "50%", transform: "translateY(-50%)", paddingLeft: "50px" }}
+									sx={{
+										top: "50%",
+										transform: "translateY(-50%)",
+										paddingLeft: { xs: "10px", md: "50px" },
+									}}
 								>
-									<Typography variant="h3">{item.title}</Typography>
-									<Typography variant="h6">{item.exerpt}</Typography>
+									<Typography sx={{ fontSize: { xs: "30px", md: "50px" } }}>{item.title}</Typography>
+									<Typography sx={{ fontSize: { xs: "20px", md: "25px" } }} color={"gray"}>
+										{item.exerpt}
+									</Typography>
 									<Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
 										<Avatar alt={item.author.name} src={item.author.image} />
 										<Box>
@@ -72,7 +76,8 @@ const data = [
 		exerpt: "Get started with your SEO implementation when using a Headless CMS",
 		author: {
 			name: "Sardor Madrimov",
-			image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+			image:
+				"https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
 		},
 	},
 	{
@@ -81,7 +86,8 @@ const data = [
 		exerpt: "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
 		author: {
 			name: "Sardor Madrimov",
-			image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+			image:
+				"https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
 		},
 	},
 ];

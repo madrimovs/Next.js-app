@@ -8,7 +8,7 @@ import { format } from "date-fns";
 const Sidebar = () => {
 	return (
 		<>
-			<Box width={"30%"}>
+			<Box width={{ xs: "100%", lg: "30%" }}>
 				<Box position={"sticky"} top={"100px"} sx={{ transition: "all .3s ease" }}>
 					<Box
 						padding={"20px"}
@@ -23,8 +23,8 @@ const Sidebar = () => {
 									<Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
 										<Image
 											src={item.image}
-											width={120}
-											height={120}
+											width={100}
+											height={100}
 											alt={item.title}
 											style={{ objectFit: "cover", borderRadius: "8px" }}
 										/>
@@ -83,7 +83,8 @@ const data = [
 		exerpt: "Get started with your SEO implementation when using a Headless CMS",
 		author: {
 			name: "Sardor Madrimov",
-			image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+			image:
+				"https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
 		},
 	},
 	{
@@ -92,7 +93,8 @@ const data = [
 		exerpt: "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
 		author: {
 			name: "Sardor Madrimov",
-			image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+			image:
+				"https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
 		},
 	},
 ];

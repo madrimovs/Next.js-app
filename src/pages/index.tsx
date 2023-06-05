@@ -13,6 +13,7 @@ export default function Index() {
 					padding: "20px",
 					backgroundColor: "#000",
 					color: "#fff",
+					flexDirection: { xs: "column", lg: "row" },
 				}}
 			>
 				<Sidebar />

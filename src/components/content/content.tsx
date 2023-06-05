@@ -1,10 +1,10 @@
-import Box from "@mui/material/Box";
-import { borderRadius } from "@mui/system";
+import { Avatar, Box, Divider, Typography } from "@mui/material";
+import { format } from "date-fns";
 import Image from "next/image";
 
 const Content = () => {
 	return (
-		<Box width={"70%"}>
+		<Box width={{ xs: "100%", lg: "70%" }}>
 			{data.map((item) => (
 				<Box
 					key={item.image}
@@ -17,8 +17,29 @@ const Content = () => {
 						border: "2px solid gray",
 					}}
 				>
-					<Box position={"relative"} width={"100%"} height={"50vh"}>
-						<Image src={item.image} alt={item.title} fill style={{ objectFit: "cover" }} />
+					<Box position={"relative"} width={"100%"} height={{ xs: "30vh", md: "50vh" }}>
+						<Image
+							src={item.image}
+							alt={item.title}
+							fill
+							style={{ objectFit: "cover", borderRadius: "10px" }}
+						/>
+					</Box>
+					<Typography variant="h5" marginTop={"25px"}>
+						{item.title}
+					</Typography>
+					<Typography variant="body1" color={"gray"}>
+						{item.exerpt}
+					</Typography>
+					<Divider color={"gray"} sx={{ marginTop: "15px" }} />
+					<Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+						<Avatar alt={item.author.name} src={item.author.image} />
+						<Box>
+							<Typography variant="subtitle2">{item.author.name}</Typography>
+							<Typography variant="caption" color={"gray"}>
+								{format(new Date(), "dd MMM, yyyy")} &#x2022; 10 min read
+							</Typography>
+						</Box>
 					</Box>
 				</Box>
 			))}
@@ -35,7 +56,8 @@ const data = [
 		exerpt: "Get started with your SEO implementation when using a Headless CMS",
 		author: {
 			name: "Sardor Madrimov",
-			image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+			image:
+				"https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
 		},
 	},
 	{
@@ -44,7 +66,8 @@ const data = [
 		exerpt: "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
 		author: {
 			name: "Sardor Madrimov",
-			image: "https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx",
+			image:
+				"https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
 		},
 	},
 ];
