@@ -22,7 +22,7 @@ export default function Index({ blogs }: HomePageProps) {
 				}}
 			>
 				<Sidebar />
-				<Content />
+				<Content blogs={blogs} />
 			</Box>
 		</Layout>
 	);
