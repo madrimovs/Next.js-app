@@ -1,14 +1,13 @@
 import { Content, Hero, Sidebar } from "@/components";
+import { BlogsType } from "@/interfaces/blogs.interface";
 import { Layout } from "@/layout/layout";
 import { BlogService } from "@/services/blog.service";
 import Box from "@mui/material/Box";
-import { useEffect } from "react";
+import { GetServerSideProps } from "next";
 
-export default function Index(props: any) {
-	console.log(props);
-	// useEffect(() => {
-	// 	BlogService.getAllBlogs().then((data) => console.log(data));
-	// }, []);
+export default function Index({ blogs }: HomePageProps) {
+	console.log(blogs);
+
 	return (
 		<Layout>
 			<Hero />
@@ -29,10 +28,16 @@ export default function Index(props: any) {
 	);
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
+	const blogs = await BlogService.getAllBlogs();
+
 	return {
 		props: {
-			message: "Message from SSR",
+			blogs,
 		},
 	};
 };
+
+interface HomePageProps {
+	blogs: BlogsType[];
+}
