@@ -1,14 +1,13 @@
 import { Avatar, Box, Divider, Typography } from "@mui/material";
 import { format } from "date-fns";
 import Image from "next/image";
-import { ContentProps } from "./content.props";
 
-const Content = ({ blogs }: ContentProps) => {
+const Content = () => {
 	return (
 		<Box width={{ xs: "100%", lg: "70%" }}>
-			{blogs.map((item) => (
+			{data.map((item) => (
 				<Box
-					key={item.id}
+					key={item.title}
 					sx={{
 						padding: "20px",
 						marginTop: "20px",
@@ -19,7 +18,7 @@ const Content = ({ blogs }: ContentProps) => {
 				>
 					<Box position={"relative"} width={"100%"} height={{ xs: "30vh", md: "50vh" }}>
 						<Image
-							src={item.image.url}
+							src={item.image}
 							alt={item.title}
 							fill
 							style={{ objectFit: "cover", borderRadius: "10px" }}
@@ -29,11 +28,11 @@ const Content = ({ blogs }: ContentProps) => {
 						{item.title}
 					</Typography>
 					<Typography variant="body1" color={"gray"}>
-						{item.excerpt}
+						{item.exerpt}
 					</Typography>
 					<Divider color={"gray"} sx={{ marginTop: "15px" }} />
 					<Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-						<Avatar alt={item.author.name} src={item.author.avatar.url} />
+						<Avatar alt={item.author.name} src={item.author.image} />
 						<Box>
 							<Typography variant="subtitle2">{item.author.name}</Typography>
 							<Typography variant="caption" color={"gray"}>
