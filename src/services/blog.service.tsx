@@ -1,9 +1,9 @@
 import { BlogsType } from "@/interfaces/blogs.interface";
-import { gql, request } from "graphql-request";
+import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT as string;
 
-export const BlogService = {
+export const BlogsService = {
 	async getAllBlogs() {
 		const query = gql`
 			query GetBlogs {
