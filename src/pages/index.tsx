@@ -3,7 +3,7 @@ import { BlogsType } from "@/interfaces/blogs.interface";
 import { Layout } from "@/layout/layout";
 import Box from "@mui/material/Box";
 import { GetServerSideProps } from "next";
-// import { BlogsService } from "../services/blog.service";
+import { BlogsService } from "../services/blog.service";
 
 export default function Index({ blogs }: HomePageProps) {
 	console.log(blogs);
@@ -28,9 +28,9 @@ export default function Index({ blogs }: HomePageProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	// const blogs = await BlogsService.getAllBlogs();
+	const blogs = await BlogsService.getAllBlogs();
 
-	// console.log(blogs);
+	console.log(blogs);
 	return {
 		props: {
 			blogs: "message from SSR",
