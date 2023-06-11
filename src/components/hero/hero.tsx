@@ -12,6 +12,8 @@ const Hero = () => {
 		<Box width={"100%"} height={"70vh"} sx={{ backgroundColor: "#000" }}>
 			<Carousel
 				responsive={{
+
+					
 					mobile: {
 						breakpoint: { max: 4000, min: 0 },
 						items: 1,
