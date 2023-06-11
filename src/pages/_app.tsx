@@ -9,32 +9,39 @@ import { Roboto } from "next/font/google";
 import Head from "next/head";
 
 const roboto = Roboto({
-	weight: ["300", "400", "500", "700"],
-	style: ["normal", "italic"],
-	subsets: ["latin"],
-	// display: "swap",
+   weight: ["300", "400", "500", "700"],
+   style: ["normal", "italic"],
+   subsets: ["latin"],
+   // display: "swap",
 });
 
 const clientSideEmotionCache = createEmotionCache();
 
 export interface MyAppProps extends AppProps {
-	emotionCache?: EmotionCache;
+   emotionCache?: EmotionCache;
 }
 
 export default function App(props: MyAppProps) {
-	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+   const {
+      Component,
+      emotionCache = clientSideEmotionCache,
+      pageProps,
+   } = props;
 
-	return (
-		<CacheProvider value={emotionCache}>
-			<Head>
-				<meta name="viewport" content="initial-scale=1, width=device-width" />
-			</Head>
-			<ThemeProvider theme={theme}>
-				<main className={roboto.className}>
-					<Component {...pageProps} />
-				</main>
-				<CssBaseline />
-			</ThemeProvider>
-		</CacheProvider>
-	);
+   return (
+      <CacheProvider value={emotionCache}>
+         <Head>
+            <meta
+               name="viewport"
+               content="initial-scale=1, width=device-width"
+            />
+         </Head>
+         <ThemeProvider theme={theme}>
+            <main className={roboto.className}>
+               <Component {...pageProps} />
+            </main>
+            <CssBaseline />
+         </ThemeProvider>
+      </CacheProvider>
+   );
 }

@@ -6,38 +6,38 @@ import { GetServerSideProps } from "next";
 import { BlogsService } from "../services/blog.service";
 
 export default function Index({ blogs }: HomePageProps) {
-	console.log(blogs);
-	return (
-		<Layout>
-			<Hero />
-			<Box
-				sx={{
-					display: "flex",
-					gap: "20px",
-					padding: "20px",
-					backgroundColor: "#000",
-					color: "#fff",
-					flexDirection: { xs: "column", lg: "row" },
-				}}
-			>
-				<Sidebar />
-				<Content />
-			</Box>
-		</Layout>
-	);
+   console.log(blogs);
+   return (
+      <Layout>
+         <Hero />
+         <Box
+            sx={{
+               display: "flex",
+               gap: "20px",
+               padding: "20px",
+               backgroundColor: "#000",
+               color: "#fff",
+               flexDirection: { xs: "column", lg: "row" },
+            }}
+         >
+            <Sidebar />
+            <Content />
+         </Box>
+      </Layout>
+   );
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const blogs = await BlogsService.getAllBlogs();
+   const blogs = await BlogsService.getAllBlogs();
 
-	console.log(blogs);
-	return {
-		props: {
-			blogs: "message from SSR",
-		},
-	};
+   console.log(blogs);
+   return {
+      props: {
+         blogs: "message from SSR",
+      },
+   };
 };
 
 interface HomePageProps {
-	blogs: BlogsType[];
+   blogs: BlogsType[];
 }
