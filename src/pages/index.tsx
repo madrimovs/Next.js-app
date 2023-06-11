@@ -21,19 +21,20 @@ export default function Index({ blogs }: HomePageProps) {
             }}
          >
             <Sidebar />
-            <Content />
+            <Content blogs={blogs} />
          </Box>
       </Layout>
    );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<
+   HomePageProps
+> = async () => {
    const blogs = await BlogsService.getAllBlogs();
 
-   console.log(blogs);
    return {
       props: {
-         blogs: "message from SSR",
+         blogs,
       },
    };
 };
