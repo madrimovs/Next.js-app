@@ -28,16 +28,6 @@ export default function Index({ blogs }: HomePageProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-<<<<<<< HEAD
-	const blogs = await BlogsService.getAllBlogs();
-
-	console.log(blogs);
-	return {
-		props: {
-			blogs: "message from SSR",
-		},
-	};
-=======
    const blogs = await BlogsService.getAllBlogs();
 
    console.log(blogs);
@@ -46,7 +36,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
          blogs: "message from SSR",
       },
    };
->>>>>>> a946f30babc103b65511171b47e5e4ba12574053
 };
 
 interface HomePageProps {

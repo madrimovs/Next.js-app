@@ -97,7 +97,10 @@ const Sidebar = () => {
                         <Fragment key={nav.route}>
                            <Button
                               fullWidth
-                              sx={{ justifyContent: "start", height: "50px" }}
+                              sx={{
+                                 justifyContent: "start",
+                                 height: "50px",
+                              }}
                            >
                               {nav.label}
                            </Button>

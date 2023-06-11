@@ -50,7 +50,12 @@ export default function Navbar(props: Props) {
             }}
          >
             <Box
-               sx={{ my: 2, display: "flex", alignItems: "center", gap: "5px" }}
+               sx={{
+                  my: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+               }}
             >
                <Diversity2Icon />
                <Typography variant="h6">SMB</Typography>
