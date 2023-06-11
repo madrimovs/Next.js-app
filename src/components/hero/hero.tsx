@@ -12,8 +12,6 @@ const Hero = () => {
 		<Box width={"100%"} height={"70vh"} sx={{ backgroundColor: "#000" }}>
 			<Carousel
 				responsive={{
-
-					
 					mobile: {
 						breakpoint: { max: 4000, min: 0 },
 						items: 1,
@@ -23,7 +21,7 @@ const Hero = () => {
 				{data.map((item) => (
 					<Box key={item.image}>
 						<Box sx={{ position: "relative", width: "100%", height: "70vh" }}>
-							<Image src={item.image} alt={item.title} fill style={{ objectFit: "cover" }} />
+							<Image src={item.image} alt={item.title} fill style={{ objectFit: "cover" }} />	
 							<Box
 								sx={{
 									position: "absolute",

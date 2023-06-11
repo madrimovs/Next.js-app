@@ -4,6 +4,7 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
+
 const Footer = () => {
 	return (
 		<Box
