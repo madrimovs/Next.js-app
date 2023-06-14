@@ -6,7 +6,6 @@ import { GetServerSideProps } from "next";
 import { BlogsService } from "../services/blog.service";
 
 export default function Index({ blogs }: HomePageProps) {
-   console.log(blogs);
    return (
       <Layout>
          <Hero />

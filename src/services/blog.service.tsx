@@ -12,6 +12,7 @@ export const BlogsService = {
                slug
                title
                excerpt
+               createdAt
                image {
                   url
                }
@@ -32,4 +33,6 @@ export const BlogsService = {
       const result = await request<{ blogs: BlogsType[] }>(graphqlAPI, query);
       return result.blogs;
    },
+
+   async getLatestBlog() {},
 };

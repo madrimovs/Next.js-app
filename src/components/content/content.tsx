@@ -43,8 +43,8 @@ const Content = ({ blogs }: ContentProps) => {
                         {item.author.name}
                      </Typography>
                      <Typography variant="caption" color={"gray"}>
-                        {format(new Date(), "dd MMM, yyyy")} &#x2022; 10 min
-                        read
+                        {format(new Date(item.createdAt), "dd MMM, yyyy")}{" "}
+                        &#x2022; 10 min read
                      </Typography>
                   </Box>
                </Box>
