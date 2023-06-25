@@ -13,7 +13,7 @@ export default function Index({
 }: HomePageProps) {
    return (
       <Layout>
-         <Hero />
+         <Hero blogs={blogs.slice(0, 3)} />
          <Box
             sx={{
                display: "flex",

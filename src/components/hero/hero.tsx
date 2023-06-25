@@ -6,8 +6,9 @@ import Box from "@mui/material/Box";
 import Image from "next/image";
 import { Avatar, Typography } from "@mui/material";
 import { format } from "date-fns";
+import { HeroProps } from "./hero.props";
 
-const Hero = () => {
+const Hero = ({ blogs }: HeroProps) => {
    return (
       <Box width={"100%"} height={"70vh"} sx={{ backgroundColor: "#000" }}>
          <Carousel
@@ -18,8 +19,8 @@ const Hero = () => {
                },
             }}
          >
-            {data.map((item) => (
-               <Box key={item.image}>
+            {blogs.map((item) => (
+               <Box key={item.id}>
                   <Box
                      sx={{
                         position: "relative",
@@ -28,7 +29,7 @@ const Hero = () => {
                      }}
                   >
                      <Image
-                        src={item.image}
+                        src={item.image.url}
                         alt={item.title}
                         fill
                         style={{ objectFit: "cover" }}
@@ -74,7 +75,7 @@ const Hero = () => {
                               }}
                               color={"gray"}
                            >
-                              {item.exerpt}
+                              {item.excerpt}
                            </Typography>
                            <Box
                               sx={{
@@ -85,14 +86,17 @@ const Hero = () => {
                            >
                               <Avatar
                                  alt={item.author.name}
-                                 src={item.author.image}
+                                 src={item.author.avatar.url}
                               />
                               <Box>
                                  <Typography variant="subtitle2">
                                     {item.author.name}
                                  </Typography>
                                  <Typography variant="caption">
-                                    {format(new Date(), "dd MMM, yyyy")}{" "}
+                                    {format(
+                                       new Date(item.createdAt),
+                                       "dd MMM, yyyy"
+                                    )}{" "}
                                     &#x2022; 10 min read
                                  </Typography>
                               </Box>
