@@ -4,8 +4,13 @@ import { Layout } from "@/layout/layout";
 import Box from "@mui/material/Box";
 import { GetServerSideProps } from "next";
 import { BlogsService } from "../services/blog.service";
+import { CategoryType } from "@/interfaces/categories.interface";
 
-export default function Index({ blogs }: HomePageProps) {
+export default function Index({
+   blogs,
+   latestBlogs,
+   categories,
+}: HomePageProps) {
    return (
       <Layout>
          <Hero />
@@ -19,7 +24,7 @@ export default function Index({ blogs }: HomePageProps) {
                flexDirection: { xs: "column", lg: "row" },
             }}
          >
-            <Sidebar />
+            <Sidebar latestBlogs={latestBlogs} categories={categories} />
             <Content blogs={blogs} />
          </Box>
       </Layout>
@@ -30,14 +35,20 @@ export const getServerSideProps: GetServerSideProps<
    HomePageProps
 > = async () => {
    const blogs = await BlogsService.getAllBlogs();
+   const latestBlogs = await BlogsService.getLatestBlog();
+   const categories = await BlogsService.getCategories();
 
    return {
       props: {
          blogs,
+         latestBlogs,
+         categories,
       },
    };
 };
 
 interface HomePageProps {
    blogs: BlogsType[];
+   latestBlogs: BlogsType[];
+   categories: CategoryType[];
 }

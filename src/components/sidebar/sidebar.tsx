@@ -4,8 +4,9 @@ import { navItems } from "@/config/constants";
 import { Fragment } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
+import { SidebarProps } from "./sidebar.props";
 
-const Sidebar = () => {
+const Sidebar = ({ latestBlogs, categories }: SidebarProps) => {
    return (
       <>
          <Box width={{ xs: "100%", lg: "30%" }}>
@@ -22,7 +23,7 @@ const Sidebar = () => {
                >
                   <Typography variant="h5">Latest blogs</Typography>
                   <Box sx={{ display: "flex", flexDirection: "column" }}>
-                     {data.map((item) => (
+                     {latestBlogs.map((item) => (
                         <Box key={item.title} marginTop={"20px"}>
                            <Box
                               sx={{
@@ -32,7 +33,7 @@ const Sidebar = () => {
                               }}
                            >
                               <Image
-                                 src={item.image}
+                                 src={item.image.url}
                                  width={100}
                                  height={100}
                                  alt={item.title}
@@ -61,7 +62,7 @@ const Sidebar = () => {
                                  >
                                     <Avatar
                                        alt={item.author.name}
-                                       src={item.author.image}
+                                       src={item.author.avatar.url}
                                     />
                                     <Box>
                                        <Typography variant="body2">
@@ -71,7 +72,10 @@ const Sidebar = () => {
                                           variant="body2"
                                           sx={{ opacity: ".6" }}
                                        >
-                                          {format(new Date(), "dd MMM, yyyy")}{" "}
+                                          {format(
+                                             new Date(item.createdAt),
+                                             "dd MMM, yyyy"
+                                          )}{" "}
                                           &#x2022; 10 min read
                                        </Typography>
                                     </Box>
@@ -93,8 +97,8 @@ const Sidebar = () => {
                   <Typography variant="h5">Category</Typography>
 
                   <Box sx={{ display: "flex", flexDirection: "column" }}>
-                     {navItems.map((nav) => (
-                        <Fragment key={nav.route}>
+                     {categories.map((nav) => (
+                        <Fragment key={nav.slug}>
                            <Button
                               fullWidth
                               sx={{
