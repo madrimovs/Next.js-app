@@ -58,26 +58,3 @@ const Content = ({ blogs }: ContentProps) => {
 };
 
 export default Content;
-
-const data = [
-   {
-      image: "https://media.graphassets.com/MxJZhmooRRuudoErkQ38",
-      title: "Technical SEO with Hygraph",
-      exerpt:
-         "Get started with your SEO implementation when using a Headless CMS",
-      author: {
-         name: "Sardor Madrimov",
-         image: "https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
-      },
-   },
-   {
-      image: "https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h",
-      title: "Union Types and Sortable Relations with Hygraph",
-      exerpt:
-         "Learn more about Polymorphic Relations and Sortable Relations with Hygraph",
-      author: {
-         name: "Sardor Madrimov",
-         image: "https://media.licdn.com/dms/image/D4D03AQGtaKyYt4v6Hw/profile-displayphoto-shrink_400_400/0/1681739470468?e=1691625600&v=beta&t=yqpd-WPbA-9mXNSNcK86r7jNzHSFhj82GD4ehPZOBwc",
-      },
-   },
-];
