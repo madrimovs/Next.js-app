@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 import { format } from "date-fns";
 import { SidebarProps } from "./sidebar.props";
+import { calculateEstimatedTimeToRead } from "@/helpers/time.format";
 
 const Sidebar = ({ latestBlogs, categories }: SidebarProps) => {
    return (
@@ -76,7 +77,11 @@ const Sidebar = ({ latestBlogs, categories }: SidebarProps) => {
                                              new Date(item.createdAt),
                                              "dd MMM, yyyy"
                                           )}{" "}
-                                          &#x2022; 10 min read
+                                          &#x2022;{" "}
+                                          {calculateEstimatedTimeToRead(
+                                             item.description.text
+                                          )}{" "}
+                                          min read
                                        </Typography>
                                     </Box>
                                  </Box>

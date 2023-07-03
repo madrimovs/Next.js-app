@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Avatar, Typography } from "@mui/material";
 import { format } from "date-fns";
 import { HeroProps } from "./hero.props";
+import { calculateEstimatedTimeToRead } from "@/helpers/time.format";
 
 const Hero = ({ blogs }: HeroProps) => {
    return (
@@ -97,7 +98,11 @@ const Hero = ({ blogs }: HeroProps) => {
                                        new Date(item.createdAt),
                                        "dd MMM, yyyy"
                                     )}{" "}
-                                    &#x2022; 10 min read
+                                    &#x2022;{" "}
+                                    {calculateEstimatedTimeToRead(
+                                       item.description.text
+                                    )}{" "}
+                                    min read
                                  </Typography>
                               </Box>
                            </Box>
