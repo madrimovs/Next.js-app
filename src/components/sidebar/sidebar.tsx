@@ -117,10 +117,13 @@ const Sidebar = ({ latestBlogs, categories }: SidebarProps) => {
                                  justifyContent: "start",
                                  height: "50px",
                               }}
+                              onClick={() =>
+                                 router.push(`/category/${nav.slug}`)
+                              }
                            >
                               {nav.label}
                            </Button>
-                           <Divider />
+                           <Divider color={"grey"} />
                         </Fragment>
                      ))}
                   </Box>
