@@ -3,8 +3,10 @@ import { format } from "date-fns";
 import Image from "next/image";
 import { ContentProps } from "./content.props";
 import { calculateEstimatedTimeToRead } from "@/helpers/time.format";
+import { useRouter } from "next/router";
 
 const Content = ({ blogs }: ContentProps) => {
+   const router = useRouter();
    return (
       <Box width={{ xs: "100%", lg: "70%" }}>
          {blogs.map((item) => (
@@ -16,6 +18,7 @@ const Content = ({ blogs }: ContentProps) => {
                   borderRadius: "8px",
                   boxShadow: "0px 0px 10px rgba(255 , 255 , 255, .5)",
                   border: "2px solid gray",
+                  cursor: "pointer",
                }}
             >
                <Box
