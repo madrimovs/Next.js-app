@@ -1,10 +1,11 @@
 import { Sidebar } from "@/components";
+import { calculateEstimatedTimeToRead } from "@/helpers/time.format";
 import { BlogsType } from "@/interfaces/blogs.interface";
 import { CategoryType } from "@/interfaces/categories.interface";
 import { Layout } from "@/layout/layout";
 import { BlogsService } from "@/services/blog.service";
-import { Box, Typography } from "@mui/material";
-import { grey } from "@mui/material/colors";
+import { Avatar, Box, Divider, Typography } from "@mui/material";
+import { format } from "date-fns";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 import React from "react";
@@ -45,11 +46,33 @@ const DetailedBlogsPage = ({
                      style={{ objectFit: "cover", borderRadius: "10px" }}
                   />
                </Box>
-               <Box display={"flex"} rowGap={"20px"} flexDirection={"column"}>
-                  <Typography variant="h4" marginTop={"15px"}>
+               <Box display={"flex"} rowGap={"10px"} flexDirection={"column"}>
+                  <Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
+                     <Avatar
+                        alt={blog.author.name}
+                        src={blog.author.avatar.url}
+                     />
+                     <Box>
+                        <Typography variant="subtitle2">
+                           {blog.author.name}
+                        </Typography>
+                        <Typography variant="caption" color={"gray"}>
+                           {format(new Date(blog.createdAt), "dd MMM, yyyy")}{" "}
+                           &#x2022;{" "}
+                           {calculateEstimatedTimeToRead(blog.description.text)}{" "}
+                           min read
+                        </Typography>
+                     </Box>
+                  </Box>
+                  <Typography variant="h4" marginTop={"5px"}>
                      {blog.title}
                   </Typography>
                   <Typography color={"grey"}>{blog.excerpt}</Typography>
+                  <Divider color={"grey"} />
+                  <div
+                     style={{ opacity: ".5" }}
+                     dangerouslySetInnerHTML={{ __html: blog.description.html }}
+                  />
                </Box>
             </Box>
             <Sidebar latestBlogs={latestBlogs} categories={categories} />

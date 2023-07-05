@@ -8,8 +8,10 @@ import { Avatar, Typography } from "@mui/material";
 import { format } from "date-fns";
 import { HeroProps } from "./hero.props";
 import { calculateEstimatedTimeToRead } from "@/helpers/time.format";
+import { useRouter } from "next/router";
 
 const Hero = ({ blogs }: HeroProps) => {
+   const router = useRouter();
    return (
       <Box width={"100%"} height={"70vh"} sx={{ backgroundColor: "#000" }}>
          <Carousel
@@ -21,7 +23,11 @@ const Hero = ({ blogs }: HeroProps) => {
             }}
          >
             {blogs.map((item) => (
-               <Box key={item.id}>
+               <Box
+                  key={item.id}
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => router.push(`/blog/${item.slug}`)}
+               >
                   <Box
                      sx={{
                         position: "relative",

@@ -105,6 +105,7 @@ export const BlogsService = {
                }
                description {
                   text
+                  html
                }
             }
          }
