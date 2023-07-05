@@ -20,6 +20,7 @@ const Content = ({ blogs }: ContentProps) => {
                   border: "2px solid gray",
                   cursor: "pointer",
                }}
+               onClick={() => router.push(`/blog/${item.slug}`)}
             >
                <Box
                   position={"relative"}
