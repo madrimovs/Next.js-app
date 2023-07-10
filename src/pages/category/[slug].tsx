@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps<
 };
 
 interface DetailedCategoriesPageProps {
-   blogs: BlogsType;
+   blogs: BlogsType[];
    latestBlogs: BlogsType[];
    categories: CategoryType[];
 }
