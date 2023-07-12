@@ -16,6 +16,7 @@ import Button from "@mui/material/Button";
 import { navItems } from "@/config/constants";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
 import CloseIcon from "@mui/icons-material/Close";
+import { useRouter } from "next/router";
 
 interface Props {
    window?: () => Window;
@@ -26,6 +27,7 @@ const drawerWidth = 240;
 export default function Navbar(props: Props) {
    const { window } = props;
    const [mobileOpen, setMobileOpen] = React.useState(false);
+   const router = useRouter();
 
    const handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
@@ -80,7 +82,6 @@ export default function Navbar(props: Props) {
 
    return (
       <Box height={"10vh"} sx={{ display: "flex" }}>
-         {/* <CssBaseline /> */}
          <AppBar
             sx={{ backgroundColor: "#000", height: "10vh" }}
             component="nav"
@@ -116,7 +117,11 @@ export default function Navbar(props: Props) {
                </Box>
                <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => (
-                     <Button key={item.route} sx={{ color: "#fff" }}>
+                     <Button
+                        onClick={() => router.push(item.route)}
+                        key={item.route}
+                        sx={{ color: "#fff" }}
+                     >
                         {item.label}
                      </Button>
                   ))}

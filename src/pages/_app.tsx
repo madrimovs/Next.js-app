@@ -7,6 +7,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import { Roboto } from "next/font/google";
 import Head from "next/head";
+import "../styles/globals.css";
 
 const roboto = Roboto({
    weight: ["300", "400", "500", "700"],
