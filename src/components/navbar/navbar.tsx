@@ -1,7 +1,6 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-// import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
@@ -17,6 +16,7 @@ import { navItems } from "@/config/constants";
 import Diversity2Icon from "@mui/icons-material/Diversity2";
 import CloseIcon from "@mui/icons-material/Close";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface Props {
    window?: () => Window;
@@ -105,11 +105,16 @@ export default function Navbar(props: Props) {
                      flexGrow: 1,
                   }}
                >
-                  <Diversity2Icon />
+                  <Diversity2Icon
+                     sx={{ cursor: "pointer" }}
+                     onClick={() => router.push("/")}
+                  />
 
                   <Typography
                      variant="h6"
                      component="div"
+                     sx={{ cursor: "pointer" }}
+                     onClick={() => router.push("/")}
                      // sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
                   >
                      SMB

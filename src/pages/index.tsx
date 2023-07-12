@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import { GetServerSideProps } from "next";
 import { BlogsService } from "../services/blog.service";
 import { CategoryType } from "@/interfaces/categories.interface";
+import SEO from "@/layout/seo/seo";
 
 export default function Index({
    blogs,
@@ -12,22 +13,24 @@ export default function Index({
    categories,
 }: HomePageProps) {
    return (
-      <Layout>
-         <Hero blogs={blogs.slice(0, 3)} />
-         <Box
-            sx={{
-               display: "flex",
-               gap: "20px",
-               padding: "20px",
-               backgroundColor: "#000",
-               color: "#fff",
-               flexDirection: { xs: "column", lg: "row" },
-            }}
-         >
-            <Sidebar latestBlogs={latestBlogs} categories={categories} />
-            <Content blogs={blogs} />
-         </Box>
-      </Layout>
+      <SEO metaTitle="SMB | Home">
+         <Layout>
+            <Hero blogs={blogs.slice(0, 3)} />
+            <Box
+               sx={{
+                  display: "flex",
+                  gap: "20px",
+                  padding: "20px",
+                  backgroundColor: "#000",
+                  color: "#fff",
+                  flexDirection: { xs: "column", lg: "row" },
+               }}
+            >
+               <Sidebar latestBlogs={latestBlogs} categories={categories} />
+               <Content blogs={blogs} />
+            </Box>
+         </Layout>
+      </SEO>
    );
 }
 
