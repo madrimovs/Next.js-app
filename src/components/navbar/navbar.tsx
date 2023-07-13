@@ -98,7 +98,7 @@ export default function Navbar(props: Props) {
                   onClick={handleDrawerToggle}
                   sx={{ mr: 2, display: { sm: "none" } }}
                >
-                  <MenuIcon />
+                  {/* <MenuIcon /> */}
                </IconButton>
                <Box
                   sx={{
