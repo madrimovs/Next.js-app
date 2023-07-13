@@ -58,6 +58,7 @@ export default function Navbar(props: Props) {
                   alignItems: "center",
                   gap: "5px",
                }}
+               onClick={() => router.push("/")}
             >
                <Diversity2Icon />
                <Typography variant="h6">SMB</Typography>
@@ -68,7 +69,10 @@ export default function Navbar(props: Props) {
          <List>
             {navItems.map((item) => (
                <ListItem key={item.route} disablePadding>
-                  <ListItemButton sx={{ textAlign: "center" }}>
+                  <ListItemButton
+                     onClick={() => router.push(item.route)}
+                     sx={{ textAlign: "center" }}
+                  >
                      <ListItemText primary={item.label} />
                   </ListItemButton>
                </ListItem>
@@ -115,7 +119,6 @@ export default function Navbar(props: Props) {
                      component="div"
                      sx={{ cursor: "pointer" }}
                      onClick={() => router.push("/")}
-                     // sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
                   >
                      SMB
                   </Typography>
